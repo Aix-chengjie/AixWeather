@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.aixweather.android.logic.Repository
+import com.aixweather.android.logic.dao.PlaceDAO
 import com.aixweather.android.logic.model.Place
 
 class PlaceViewModel : ViewModel() {
@@ -19,5 +20,7 @@ class PlaceViewModel : ViewModel() {
     fun searchPlaces(query: String) {
         searchLiveData.value = query
     }
-
+    fun savePlace(place: Place) = PlaceDAO.savePlace(place)
+    fun getSavedPlace() = PlaceDAO.getSavedPlace()
+    fun isPlaceSaved() = PlaceDAO.isPlaceSaved()
 }
