@@ -1,6 +1,7 @@
 package com.aixweather.android.logic.dao
 
 import android.content.Context
+import androidx.core.content.edit
 import com.aixweather.android.AixWeatherApplication
 import com.aixweather.android.logic.model.Location
 import com.aixweather.android.logic.model.Place
@@ -8,7 +9,10 @@ import com.google.gson.Gson
 
 object PlaceDAO {
     fun savePlace(place: Place) {
-        sharedPreferences().edit().putString("place", Gson().toJson(place))
+        sharedPreferences().edit {
+            putString("place", Gson().toJson(place))
+        }
+//        sharedPreferences().edit().putString("place", Gson().toJson(place)).apply()
     }
 
     fun getSavedPlace(): Place {

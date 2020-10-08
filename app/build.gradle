@@ -15,11 +15,20 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        config {
+            storeFile file('C:/Users/12519/Desktop/AixApp.jks')
+            storePassword '19980823mcc'
+            keyAlias = 'aixdev'
+            keyPassword '19980823mcc'
+        }
+    }
     kotlinOptions { jvmTarget = 1.8}
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }
