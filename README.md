@@ -1,0 +1,2 @@
+# AixWeather
+Simple weather software
